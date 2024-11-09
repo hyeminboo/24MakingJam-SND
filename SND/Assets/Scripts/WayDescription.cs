@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WayDescription : MonoBehaviour
 {
@@ -9,17 +11,26 @@ public class WayDescription : MonoBehaviour
     public TMP_Text content;
     public GameObject panel;
     private bool isDialogueEnded = false;
+    public Button way1;
+    public Button way2;
+    public Button way3;
+    public GameObject tigerImage;
 
-
-    private string[] speakers = { "영매", "", "", "첫 번째 혼령", "두 번째 혼령", "세 번째 혼령"};
+    private string[] speakers = { "영매", "", "", "첫 번째 혼령", "두 번째 혼령", "세 번째 혼령" };
     private string[] contents = { "여기가 어디지...?", "깊은 숲 속에서 길을 헤매던 영매. \n\n세 갈래로 나뉜 길 앞에 서있다.", "각 길목에서 혼령의 목소리가 들리고,\n\n혼령은 각 길에 대해 설명하지만 혼령의 말은 언제나 반만 진실이다.", "이 길로 가면 서낭당에 닿을테지만 내가 말하는대로는 하지 않는 게 좋을거요.", "이 길은 네놈이 찾는 길이 아니다. 하지만 두 번째 길을 따라가야 해.", "여기 있는 길들은 전부 허상이라네. 특히 첫 번째 길은 절대로 가면 안 돼." };
     private int currentIndex = 0;
 
 
     void Start()
     {
+        tigerImage.SetActive(false);
+        way1.gameObject.SetActive(false);
+        way2.gameObject.SetActive(false);
+        way3.gameObject.SetActive(false);
         UpdateDialogue();
-
+        way1.onClick.AddListener(wrongway);
+        way2.onClick.AddListener(rightway);
+        way3.onClick.AddListener(wrongway);
     }
 
     void Update()
@@ -32,6 +43,9 @@ public class WayDescription : MonoBehaviour
             {
                 isDialogueEnded = true; // 대화 종료 설정
                 panel.SetActive(false); // 패널 비활성화
+                way1.gameObject.SetActive(true);
+                way2.gameObject.SetActive(true);
+                way3.gameObject.SetActive(true);
             }
             else
             {
@@ -77,4 +91,17 @@ public class WayDescription : MonoBehaviour
         speaker.text = ""; // 이름 텍스트 초기화
         content.text = ""; // 내용 텍스트 초기화
     }
+
+    private void wrongway()
+    {
+        tigerImage.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    private void rightway()
+    {
+        SceneManager.LoadScene("Seonangdang");
+    }
+
+
+
 }
