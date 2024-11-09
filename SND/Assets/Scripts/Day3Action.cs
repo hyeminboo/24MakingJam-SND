@@ -34,7 +34,7 @@ public class Day3Action : DayAction
         // 이미지와 대화창 활성화
         image.SetActive(true);
         dialog.SetActive(true);
-        contentText.text = "Eat or Not?";
+        contentText.text = "메밀묵…? 제사를 지내고 남은 것 같다.\n머리를 썼더니 출출한데 먹을까? ";
 
         // 3초 뒤에 버튼을 활성화하는 코루틴 시작
         StartCoroutine(ActivateButtonsAfterDelay(3f));
@@ -52,7 +52,7 @@ public class Day3Action : DayAction
     {
         yes.gameObject.SetActive(false);
         no.gameObject.SetActive(false);
-        contentText.text = "Yum";
+        contentText.text = "맛있다. \n다음 수수께끼는 더 잘 풀 수 있을 것 같은 기분이 든다.";
         day3end = true;
 
     }
@@ -60,7 +60,7 @@ public class Day3Action : DayAction
     {
         yes.gameObject.SetActive(false);
         no.gameObject.SetActive(false);
-        contentText.text = "Keep it";
+        contentText.text = "무슨 일이 생길지 모르니 일단은 챙겨가보자.";
         Gamemanager.instance.OnItemButtonClick(2);
         StartCoroutine(ItemDescription(1f));
     }
@@ -68,7 +68,7 @@ public class Day3Action : DayAction
     {
         yield return new WaitForSeconds(delay);
         itemPanel.SetActive(true);
-        itemdescription.text = "Muk";
+        itemdescription.text = "메밀묵 \n\n봇짐이 한층 더 고소해졌다.";
     }
     public void ClosePanel()
     {
