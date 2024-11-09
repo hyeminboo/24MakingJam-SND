@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventoryItems = new List<Item>();
     public Canvas inventorycanvas;
-    public Transform inventoryPanel;
+    public GameObject inventorySlots;
     public GameObject DKB;
     public GameObject itemPanel;
     public TMP_Text itemName;
@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     public Button item1;
     public Button item2;
     public Button item3;
+    public Image itemImage;
     private void Awake()
     {
         if (instance == null)
@@ -78,7 +79,7 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < inventoryItems.Count; i++)
         {
-            Transform slot = inventoryPanel.GetChild(i);
+            Transform slot = inventorySlots.transform.GetChild(i);
 
             Image icon = slot.GetComponentInChildren<Image>();
 
@@ -87,6 +88,9 @@ public class InventoryManager : MonoBehaviour
                 if (inventoryItems[i] != null && inventoryItems[i].icon != null)
                 {
                     icon.sprite = inventoryItems[i].icon;
+                    Color color = icon.color;
+                    color.a = 1f;
+                    icon.color = color;
                 }
                 else
                 {
@@ -97,9 +101,9 @@ public class InventoryManager : MonoBehaviour
             LayoutRebuilder.ForceRebuildLayoutImmediate(slot.GetComponent<RectTransform>());
         }
 
-        for (int i = inventoryItems.Count; i < inventoryPanel.childCount; i++)
+        for (int i = inventoryItems.Count; i < inventorySlots.transform.childCount; i++)
         {
-            Transform slot = inventoryPanel.GetChild(i);
+            Transform slot = inventorySlots.transform.GetChild(i);
             Image icon = slot.GetComponentInChildren<Image>();
             if (icon != null)
             {
@@ -122,6 +126,7 @@ public class InventoryManager : MonoBehaviour
         Item item = inventoryItems[index - 1];
         itemName.text = item.itemName;
         itemDescription.text = item.description;
+        itemImage.sprite = item.icon;
 
         Debug.Log(itemName);
 
