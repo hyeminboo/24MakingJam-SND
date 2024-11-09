@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageObject: {fileID: 0}
+  isDoorClickable: 1
   imageDisplayTime: 2

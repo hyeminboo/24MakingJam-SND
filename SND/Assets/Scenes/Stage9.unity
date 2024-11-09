@@ -137,6 +137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fail Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5146204405475303379, guid: d60ed29c8779347669388170a41ca6a0, type: 3}
+      propertyPath: m_TagString
+      value: Fail Door
+      objectReference: {fileID: 0}
     - target: {fileID: 5146204405475303391, guid: d60ed29c8779347669388170a41ca6a0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -326,6 +330,10 @@ PrefabInstance:
       objectReference: {fileID: 1602569747}
     - target: {fileID: 5146204405475303379, guid: d60ed29c8779347669388170a41ca6a0, type: 3}
       propertyPath: m_Name
+      value: Fail Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146204405475303379, guid: d60ed29c8779347669388170a41ca6a0, type: 3}
+      propertyPath: m_TagString
       value: Fail Door
       objectReference: {fileID: 0}
     - target: {fileID: 5146204405475303391, guid: d60ed29c8779347669388170a41ca6a0, type: 3}

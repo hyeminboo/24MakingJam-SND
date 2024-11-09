@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5146204405475303376}
   m_Layer: 0
   m_Name: Fail Door
-  m_TagString: Untagged
+  m_TagString: Fail Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageObject: {fileID: 0}
+  isDoorClickable: 1
   imageDisplayTime: 2

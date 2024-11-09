@@ -13,7 +13,8 @@ public class Pass : MonoBehaviour
     private Day5Action day5Action;
     private Day9Action day9Action;
 
-
+    private Fail failScript;
+    private GameObject[] failObjects;
 
     [SerializeField]
     private float imageDisplayTime = 2f;
@@ -22,6 +23,34 @@ public class Pass : MonoBehaviour
     {
         isDoorClickable = true;
         imageObject.SetActive(false);
+        TryFindFailScript();
+    }
+
+    void TryFindFailScript()
+    {
+        // "FailDoor" 태그를 가진 모든 오브젝트를 찾음
+        failObjects = GameObject.FindGameObjectsWithTag("Fail Door");
+
+        if (failObjects.Length > 0)
+        {
+            foreach (GameObject failObject in failObjects)
+            {
+                Fail failScript = failObject.GetComponent<Fail>();
+                if (failScript != null)
+                {
+                    failScript.isDoorClickable = false;
+                    Debug.Log("Fail Door 스크립트가 성공적으로 참조되었습니다.");
+                }
+                else
+                {
+                    Debug.LogError("FailDoor 오브젝트에서 Fail 스크립트를 찾을 수 없습니다.");
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Fail Door 오브젝트를 찾을 수 없습니다.");
+        }
     }
 
     void OnMouseDown()
@@ -35,6 +64,19 @@ public class Pass : MonoBehaviour
     private IEnumerator DisplayImageAndProceed()
     {
         isDoorClickable = false;
+
+        // failObjects 배열을 사용하는 부분
+        if (failObjects != null)
+        {
+            foreach (GameObject failObject in failObjects)
+            {
+                Fail failScript = failObject.GetComponent<Fail>();
+                if (failScript != null)
+                {
+                    failScript.isDoorClickable = false;
+                }
+            }
+        }
 
         Debug.Log("문선택" + Gamemanager.instance.day);
 
@@ -83,6 +125,19 @@ public class Pass : MonoBehaviour
         Gamemanager.instance.day++;
 
         isDoorClickable = true;
+
+        if (failObjects != null)
+        {
+            foreach (GameObject failObject in failObjects)
+            {
+                Fail failScript = failObject.GetComponent<Fail>();
+                if (failScript != null)
+                {
+                    failScript.isDoorClickable = true;
+                }
+            }
+        }
+
         LoadNextScene();
     }
 
@@ -93,8 +148,5 @@ public class Pass : MonoBehaviour
         {
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
-
     }
-
-
 }

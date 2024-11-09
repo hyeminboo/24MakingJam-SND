@@ -80,6 +80,8 @@ public class Day5Action : DayAction
     public void giveMuk1()
     {
         contentText.text = "good";
+        InventoryManager.instance.inventoryItems.Remove(Gamemanager.instance.item2);
+        InventoryManager.instance.UpdateInventoryUI();
         InventoryManager.instance.DKB.gameObject.SetActive(true);
         DKB.gameObject.SetActive(false);
         optionBtn1.SetActive(false);
