@@ -33,7 +33,10 @@ public class Pass : MonoBehaviour
     {
         //SceneManager.LoadScene("SampleScene");  
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        if (currentSceneIndex < 15) {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        
     }
 
 
