@@ -7,23 +7,29 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
 
     public List<Item> inventoryItems = new List<Item>();
-
+    public Canvas inventorycanvas;
     public Transform inventoryPanel;  // 인벤토리
+    public GameObject DKB;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  // 씬이 변경되어도 유지
+            DontDestroyOnLoad(gameObject);
+            if (inventoryPanel != null)
+            {
+                DontDestroyOnLoad(inventorycanvas);
+            }
         }
         else
         {
-            Destroy(gameObject);  // 중복 방지
+            Destroy(gameObject);
         }
     }
     private void Start()
     {
+        DKB.SetActive(false);
         InitializeInventory();  // 인벤토리 초기화 메서드 호출
     }
 
@@ -56,10 +62,22 @@ public class InventoryManager : MonoBehaviour
             if (icon != null)
             {
                 icon.sprite = inventoryItems[i].icon;
+                Debug.Log("이미지 변경");
             }
             LayoutRebuilder.ForceRebuildLayoutImmediate(slot.GetComponent<RectTransform>());
 
         }
+    }
+    public void DKBcall()
+    {
+        //도꺠비 8일차 아니면 반응 X
+        if (Gamemanager.instance.day == 8)
+        {
 
+        }
+        else
+        {
+
+        }
     }
 }

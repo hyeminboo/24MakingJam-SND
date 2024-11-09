@@ -12,29 +12,35 @@ public class Gamemanager : MonoBehaviour
     public Sprite item2icon;
     public Sprite item3icon;
 
-    private Item item1; //초롱꽃
-    private Item item2; //메밀묵
-    private Item item3; //수수떡
+    public Item item1; //초롱꽃
+    public Item item2; //메밀묵
+    public Item item3; //수수떡
+
+    public int day = 1;
 
     void Start()
     {
-        item1 = new Item("초롱꽃", item1icon, "환하게 반짝거린다.");
-        item2 = new Item("메밀묵", item2icon, "봇짐이 한층 더 고소해졌다.");
-        item3 = new Item("수수떡", item3icon, "봇짐이 한층 더 쫀득해졌다.");
+        item1 = ScriptableObject.CreateInstance<Item>();
+        item1.Initialize("초롱꽃", item1icon, "환하게 반짝거린다.");
+
+        item2 = ScriptableObject.CreateInstance<Item>();
+        item2.Initialize("메밀묵", item2icon, "봇짐이 한층 더 고소해졌다.");
+
+        item3 = ScriptableObject.CreateInstance<Item>();
+        item3.Initialize("수수떡", item3icon, "봇짐이 한층 더 쫀득해졌다.");
     }
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(instance);
+            Destroy(this.gameObject);
         }
     }
-
     public void OnItemButtonClick(int itemIndex)
     {
         switch (itemIndex)

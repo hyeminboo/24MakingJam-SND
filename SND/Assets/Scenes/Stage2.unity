@@ -239,6 +239,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2770442136284649615, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
+      propertyPath: day1Action
+      value: 
+      objectReference: {fileID: 7111426005071709772, guid: bfaeaa901a20623448e4cd1628fba92f, type: 3}
+    - target: {fileID: 2770442136284649615, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: imageObject
       value: 
       objectReference: {fileID: 1980166966}

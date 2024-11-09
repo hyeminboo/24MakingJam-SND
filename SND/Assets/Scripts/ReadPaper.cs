@@ -1,57 +1,130 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class ReadPaper : MonoBehaviour
 {
-    public GameObject paper;
-    public GameObject papericon;
-    public GameObject paper_rolled;
+    public static ReadPaper instance;
+
+    public Button papericon;
     public GameObject paper_unrolled;
+    public Canvas papercanvas;
+    public TMP_Text rules;
+    private Pass passScript;
+    private Fail failScript;
 
     private bool isPaperOpen = false;
 
     void Start()
     {
-        paper_rolled.SetActive(false);
-        paper_unrolled.SetActive(false);
-
-        papericon.SetActive(false);
-        DontDestroyOnLoad(papericon);
+        InitializeScripts();
     }
 
-    public void Open()
+    void Awake()
     {
-        paper_rolled.SetActive(true);
-        isPaperOpen = true;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            if (papercanvas != null)
+            {
+                DontDestroyOnLoad(papercanvas);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
         if (isPaperOpen && Input.GetMouseButtonDown(0))
         {
-            if (paper_rolled.activeSelf)
+            paper_unrolled.SetActive(false);
+            isPaperOpen = false;
+        }
+    }
+
+    public void OpenAgain()
+    {
+        InitializeScripts(); // Ensure scripts are initialized
+
+        if (!isPaperOpen)
+        {
+            if (Gamemanager.instance != null && Gamemanager.instance.day == 4)
             {
-                paper_rolled.SetActive(false);
+                rules.text = "New Rules";
+
+                Debug.Log("4일차 룰지 클릭");
+
                 paper_unrolled.SetActive(true);
+                isPaperOpen = true;
+
+                if (passScript != null)
+                {
+                    passScript.isDoorClickable = true;
+                }
+                else
+                {
+                    Debug.LogError("Pass 스크립트가 초기화되지 않았습니다.");
+                }
             }
             else
             {
-                paper_unrolled.SetActive(false);
-                papericon.SetActive(true);
-                isPaperOpen = false;
+                paper_unrolled.SetActive(true);
+                isPaperOpen = true;
             }
         }
     }
-    public void OpenAgain()
-    {
-        paper_unrolled.SetActive(true);
-        isPaperOpen = true;
 
-        if (isPaperOpen && Input.GetMouseButtonDown(0))
+    private void InitializeScripts()
+    {
+        if (passScript == null)
         {
-            paper_unrolled.SetActive(false);
-            isPaperOpen = false;
+            GameObject passObject = GameObject.Find("Pass Door");
+            if (passObject != null)
+            {
+                passScript = passObject.GetComponent<Pass>();
+
+                if (passScript != null)
+                {
+                    Debug.Log("Pass 스크립트가 성공적으로 참조되었습니다.");
+                }
+                else
+                {
+                    Debug.LogError("Pass 스크립트가 해당 게임 오브젝트에 존재하지 않습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Pass 오브젝트를 찾을 수 없습니다.");
+            }
+        }
+
+        if (failScript == null)
+        {
+            GameObject failObject = GameObject.Find("Fail Door");
+            if (failObject != null)
+            {
+                failScript = failObject.GetComponent<Fail>();
+
+                if (failScript != null)
+                {
+                    Debug.Log("Fail 스크립트가 성공적으로 참조되었습니다.");
+                }
+                else
+                {
+                    Debug.LogError("Fail 스크립트가 해당 게임 오브젝트에 존재하지 않습니다.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Fail 오브젝트를 찾을 수 없습니다.");
+            }
         }
     }
 }

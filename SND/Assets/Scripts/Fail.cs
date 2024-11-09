@@ -4,21 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Fail : MonoBehaviour
-{   
+{
     public GameObject imageObject;
+    public bool isDoorClickable = true;
 
     [SerializeField]
     private float imageDisplayTime = 2f;
 
-    // Start is called before the first frame update
     void Start()
     {
         imageObject.SetActive(false);
     }
 
 
-    void OnMouseDown() {
-        StartCoroutine(DisplayImageAndProceed());
+    void OnMouseDown()
+    {
+        if (isDoorClickable)
+        {
+            StartCoroutine(DisplayImageAndProceed());
+        }
     }
 
     private IEnumerator DisplayImageAndProceed()
@@ -40,11 +44,6 @@ public class Fail : MonoBehaviour
     {
 
         SceneManager.LoadScene("SampleScene");
-        
+
     }
-    // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
 }
