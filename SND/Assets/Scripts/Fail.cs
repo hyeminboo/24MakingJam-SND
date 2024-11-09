@@ -43,7 +43,7 @@ public class Fail : MonoBehaviour
     private void LoadNextScene()
     {
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Prologue");
 
     }
 }

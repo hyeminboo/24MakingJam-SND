@@ -10,7 +10,6 @@ public class EndingScene : MonoBehaviour
     public GameObject imageObject;
     public string[] dialogues;
     private int currentDialogueIndex = 0;
-    private int currentTime = 0;
     public float dialogueInterval = 2f;
 
     public Text dialogueText;

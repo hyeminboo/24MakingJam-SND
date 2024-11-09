@@ -34,7 +34,7 @@ public class Day3Action : DayAction
         // 이미지와 대화창 활성화
         image.SetActive(true);
         dialog.SetActive(true);
-        contentText.text = "메밀묵…? 제사를 지내고 남은 것 같다.\n머리를 썼더니 출출한데 먹을까? ";
+        contentText.text = "메밀묵…? 제사를 지내고 남은 것 같다.\n\n머리를 썼더니 출출한데 먹을까? ";
 
         // 3초 뒤에 버튼을 활성화하는 코루틴 시작
         StartCoroutine(ActivateButtonsAfterDelay(3f));

@@ -57,7 +57,7 @@ public class ReadPaper : MonoBehaviour
         {
             if (Gamemanager.instance != null && Gamemanager.instance.day == 4)
             {
-                rules.text = "- 왼쪽 문의 쪽지는 방에 통로가 있으면 참이고, 호랑이가 있으면 거짓이다.\n-오른쪽 방문의 쪽지는 방에 통로가 있으면 거짓이고, 호랑이가 있으면 참이다.";
+                rules.text = "\n\n- 왼쪽 문의 쪽지는 방에 통로가 있으면 참이고,\n호랑이가 있으면 거짓이다.\n\n-오른쪽 방문의 쪽지는 방에 통로가 있으면 거짓이고,\n호랑이가 있으면 참이다.";
 
                 Debug.Log("4일차 룰지 클릭");
 
