@@ -11,6 +11,8 @@ public class Pass : MonoBehaviour
     private Day1Action day1Action;
     private Day3Action day3Action;
     private Day5Action day5Action;
+    private Day9Action day9Action;
+
 
 
     [SerializeField]
@@ -64,6 +66,14 @@ public class Pass : MonoBehaviour
                     yield return StartCoroutine(day5Action.PerformDayAction());
                 }
                 break;
+            case 9:
+                dayActionObject = GameObject.Find("Day9Action");
+                day9Action = dayActionObject.GetComponent<Day9Action>();
+                if (day9Action != null)
+                {
+                    yield return StartCoroutine(day9Action.PerformDayAction());
+                }
+                break;
             default:
                 yield return new WaitForSeconds(imageDisplayTime);
                 imageObject.SetActive(false);
@@ -79,10 +89,11 @@ public class Pass : MonoBehaviour
     private void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex < 15) {
+        if (currentSceneIndex < 15)
+        {
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
-        
+
     }
 
 
