@@ -56,7 +56,7 @@ public class Day8Action : MonoBehaviour
         SetPanelAlpha(1);
 
         dialog.SetActive(true);
-        contentText.text = "바람이 불어 호롱불이 꺼진다. 캄캄한 어둠. 아무것도 보이지 않는다.";
+        contentText.text = "바람이 불어 호롱불이 꺼진다.\n\n캄캄한 어둠.\n\n아무것도 보이지 않는다.";
         yield return new WaitForSeconds(2f);
         dialog.SetActive(false);
 

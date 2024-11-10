@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 270512548}
   - component: {fileID: 270512547}
   - component: {fileID: 270512546}
+  - component: {fileID: 270512549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -204,13 +205,41 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &446296729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5425258840468043499, guid: e5e5f807757c440409057301606fa608, type: 3}
-  m_PrefabInstance: {fileID: 835458069}
+--- !u!114 &270512549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270512545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &578770152
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +661,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3781754572934202614, guid: e5e5f807757c440409057301606fa608, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781754572934202618, guid: e5e5f807757c440409057301606fa608, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781754572934202618, guid: e5e5f807757c440409057301606fa608, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5425258840468043499, guid: e5e5f807757c440409057301606fa608, type: 3}
       propertyPath: m_Name
       value: Opened Door (1)
@@ -682,6 +723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5e5f807757c440409057301606fa608, type: 3}
+--- !u!1 &835458070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3781754572934202614, guid: e5e5f807757c440409057301606fa608, type: 3}
+  m_PrefabInstance: {fileID: 835458069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996874398
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00019073, y: -22}
+  m_AnchoredPosition: {x: 0, y: 9}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099021658
@@ -1006,7 +1052,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -89.24628, y: -14.726776, z: -85.53491, w: -38.4906}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1137,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770442136284649612, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2770442136284649612, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1198,7 +1244,7 @@ PrefabInstance:
     - target: {fileID: 2770442136284649615, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: imageObject
       value: 
-      objectReference: {fileID: 1830889517}
+      objectReference: {fileID: 835458070}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
 --- !u!4 &1104101565 stripped
@@ -1392,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2770442136284649612, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2770442136284649612, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1453,7 +1499,7 @@ PrefabInstance:
     - target: {fileID: 2770442136284649615, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
       propertyPath: imageObject
       value: 
-      objectReference: {fileID: 446296729}
+      objectReference: {fileID: 1830889517}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98928b9c7c4d4f2ea2d0b9f1c71d4ca, type: 3}
 --- !u!4 &1282279732 stripped
@@ -1993,6 +2039,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3781754572934202614, guid: e5e5f807757c440409057301606fa608, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5425258840468043499, guid: e5e5f807757c440409057301606fa608, type: 3}
       propertyPath: m_Name
       value: Opened Door
@@ -2045,7 +2095,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e5e5f807757c440409057301606fa608, type: 3}
 --- !u!1 &1830889517 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5425258840468043499, guid: e5e5f807757c440409057301606fa608, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3781754572934202614, guid: e5e5f807757c440409057301606fa608, type: 3}
   m_PrefabInstance: {fileID: 1830889516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1971988338

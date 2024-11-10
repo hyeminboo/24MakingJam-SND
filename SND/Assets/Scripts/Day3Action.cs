@@ -52,7 +52,7 @@ public class Day3Action : DayAction
     {
         yes.gameObject.SetActive(false);
         no.gameObject.SetActive(false);
-        contentText.text = "맛있다. \n다음 수수께끼는 더 잘 풀 수 있을 것 같은 기분이 든다.";
+        contentText.text = "맛있다.\n다음 수수께끼는 더 잘 풀 수\n있을 것 같은 기분이 든다.";
         day3end = true;
 
     }
