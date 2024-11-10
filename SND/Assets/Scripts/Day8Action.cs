@@ -99,9 +99,9 @@ public class Day8Action : MonoBehaviour
         Debug.Log("문 활성화");
 
         yield return new WaitForSeconds(0.5f);
-        contentText.text = "문에 부적이 없다!!";
+        contentText.text = "문에 부적이 없다!!\n\n바람때문에 문에 붙어있어야 할 부적이 바닥에 떨어진 모양이다.\n\n이리저리 뒤섞여서 어느 문에 붙어있었는지도 모르겠다.";
         yield return new WaitForSeconds(2f);
-        contentText.text = "바람때문에 문에 붙어있어야 할 부적이 바닥에 떨어진 모양이다.이리저리 뒤섞여서 어느 문에 붙어있었는지도 모르겠다.";
+        // contentText.text = "바람때문에 문에 붙어있어야 할 부적이 바닥에 떨어진 모양이다.\n이리저리 뒤섞여서 어느 문에 붙어있었는지도 모르겠다.";
         dialog.SetActive(false);
     }
 
