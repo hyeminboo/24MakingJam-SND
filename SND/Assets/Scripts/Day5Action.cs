@@ -23,7 +23,7 @@ public class Day5Action : DayAction
 
     private int currentContentIndex = 0;
 
-    private string[] speakers = { "", "", "도깨비", "도깨비"};
+    private string[] speakers = { "", "", "도깨비", "도깨비" };
     private string[] contents = {
         "방 한 구석에서 누군가 중얼거리는 소리가 들린다. 어쩐지 으스스하다.",
         "가까이 다가가보니… 도깨비다. \n\n한 손에 들어오는 크기로 일렁거리는 게 생각보다 귀엽다.",
@@ -59,17 +59,19 @@ public class Day5Action : DayAction
                 speaker.text = speakers[currentContentIndex];
                 contentText.text = contents[currentContentIndex];
 
-                if (speaker.text == "도깨비") {
+                if (speaker.text == "도깨비")
+                {
                     speaker.font = dokkaebi;
                     contentText.font = dokkaebi;
                 }
-                else {
+                else
+                {
                     contentText.font = defaultFont;
                     contentText.font = defaultFont;
                 }
 
                 currentContentIndex++;
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(0.5f);
                 isClickAllowed = true;
             }
 
@@ -95,7 +97,7 @@ public class Day5Action : DayAction
     }
     public void giveMuk1()
 
-    {   
+    {
         speaker.text = "도깨비";
         contentText.text = "고맙다는 인사도 없이 맛있게 먹어치우고는 아주 자연스럽게 봇짐에 올라탄다.";
         InventoryManager.instance.inventoryItems.Remove(Gamemanager.instance.item2);

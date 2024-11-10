@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
+
 using TMPro;
 
 public class InventoryManager : MonoBehaviour
@@ -10,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     public List<Item> inventoryItems = new List<Item>();
     public Canvas inventorycanvas;
     public GameObject inventorySlots;
-    public GameObject DKB;
+    public Button DKB;
     public GameObject itemPanel;
     public TMP_Text itemName;
     public TMP_Text itemDescription;
@@ -20,6 +22,7 @@ public class InventoryManager : MonoBehaviour
     public Button item2;
     public Button item3;
     public Image itemImage;
+    private Day8Action day8Action;
     private void Awake()
     {
         if (instance == null)
@@ -41,7 +44,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        DKB.SetActive(false);
+        DKB.gameObject.SetActive(false);
         itemPanel.SetActive(false);
         itemDescription.text = "";
         itemName.text = "";
@@ -59,6 +62,7 @@ public class InventoryManager : MonoBehaviour
         }); item2.onClick.AddListener(() => UseItem(2));
         item3.onClick.AddListener(() => UseItem(3));
         close.onClick.AddListener(() => itemPanel.SetActive(false));
+        DKB.onClick.AddListener(() => StartCoroutine(DKBcall()));
     }
 
     private void InitializeInventory()
@@ -108,6 +112,9 @@ public class InventoryManager : MonoBehaviour
             if (icon != null)
             {
                 icon.sprite = null; // 빈 슬롯의 이미지 제거
+                Color color = icon.color;
+                color.a = 0f;
+                icon.color = color;
             }
         }
     }
@@ -133,7 +140,14 @@ public class InventoryManager : MonoBehaviour
         if (item.itemName == "초롱꽃" && Gamemanager.instance.day == 8)
         {
             use.gameObject.SetActive(true);
-            //use.onClick.AddListener();
+
+            GameObject dayActionObject = GameObject.Find("Day8Action");
+            Day8Action day8Action = dayActionObject.GetComponent<Day8Action>();
+
+            if (day8Action != null)
+            {
+                use.onClick.AddListener(() => StartCoroutine(day8Action.FadeInScreen()));
+            }
         }
         else if (item.itemName == "수수떡" && Gamemanager.instance.day == 10)
         {
@@ -141,16 +155,24 @@ public class InventoryManager : MonoBehaviour
             //use.onClick.AddListener();
         }
     }
-    public void DKBcall()
+    public IEnumerator DKBcall()
     {
-        //도꺠비 8일차 아니면 반응 X
+        // 도깨비 8일차인 경우에만 동작
         if (Gamemanager.instance.day == 8)
         {
+            GameObject dayActionObject = GameObject.Find("Day8Action");
+            Day8Action day8Action = dayActionObject?.GetComponent<Day8Action>();
 
+            if (day8Action != null)
+            {
+                // DKBDialog 코루틴 실행
+                yield return StartCoroutine(day8Action.DKBDialog());
+            }
         }
         else
         {
-
+            // 도깨비가 없을 경우
+            Debug.Log("도깨비 없음");
         }
     }
 }

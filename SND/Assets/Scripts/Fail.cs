@@ -13,6 +13,7 @@ public class Fail : MonoBehaviour
 
     void Start()
     {
+        isDoorClickable = true;
         imageObject.SetActive(false);
     }
 

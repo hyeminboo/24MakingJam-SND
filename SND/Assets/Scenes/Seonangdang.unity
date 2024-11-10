@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 388555309}
   - component: {fileID: 388555311}
   - component: {fileID: 388555310}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rules (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ GameObject:
   - component: {fileID: 1140309623}
   - component: {fileID: 1140309622}
   - component: {fileID: 1140309621}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: paper_unrolled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,10 +1478,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1581,10 +1581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1612,7 +1612,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1628352668
 GameObject:
@@ -1625,7 +1625,7 @@ GameObject:
   - component: {fileID: 1628352669}
   - component: {fileID: 1628352671}
   - component: {fileID: 1628352670}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: rules
   m_TagString: Untagged
   m_Icon: {fileID: 0}

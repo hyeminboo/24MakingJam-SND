@@ -23,7 +23,6 @@ public class Pass : MonoBehaviour
     {
         isDoorClickable = true;
         imageObject.SetActive(false);
-        TryFindFailScript();
     }
 
     void TryFindFailScript()
@@ -58,6 +57,8 @@ public class Pass : MonoBehaviour
         if (isDoorClickable)
         {
             StartCoroutine(DisplayImageAndProceed());
+            TryFindFailScript();
+
         }
     }
 
