@@ -64,6 +64,7 @@ public class Day5Action : DayAction
                     speaker.font = dokkaebi;
                     contentText.font = dokkaebi;
                     contentText.fontSize = 40;
+                    speaker.fontSize = 45;
                 }
                 else
                 {

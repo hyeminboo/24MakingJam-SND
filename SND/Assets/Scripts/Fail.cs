@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Fail : MonoBehaviour
 {
     public GameObject imageObject;
+    public GameObject imageTransition;
     public bool isDoorClickable = true;
 
     [SerializeField]
@@ -15,6 +16,7 @@ public class Fail : MonoBehaviour
     {
         isDoorClickable = true;
         imageObject.SetActive(false);
+        imageTransition.SetActive(false);
     }
 
 
@@ -30,6 +32,7 @@ public class Fail : MonoBehaviour
     {
         // 이미지 활성화
         imageObject.SetActive(true);
+        imageTransition.SetActive(true);
 
         // 지정된 시간 동안 대기
         yield return new WaitForSeconds(imageDisplayTime);
