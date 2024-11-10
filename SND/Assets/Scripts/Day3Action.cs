@@ -15,6 +15,8 @@ public class Day3Action : DayAction
     public Button Close;
     public GameObject itemPanel;
     public TMP_Text itemdescription;
+    public TMP_Text itemName;
+
 
     void Start()
     {
@@ -68,7 +70,8 @@ public class Day3Action : DayAction
     {
         yield return new WaitForSeconds(delay);
         itemPanel.SetActive(true);
-        itemdescription.text = "메밀묵 \n\n봇짐이 한층 더 고소해졌다.";
+        itemName.text = "메밀묵";
+        itemdescription.text = "봇짐이 한층 더 고소해졌다.";
     }
     public void ClosePanel()
     {

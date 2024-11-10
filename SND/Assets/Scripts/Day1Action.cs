@@ -19,6 +19,7 @@ public class Day1Action : DayAction
 
     public GameObject dialog;
     public GameObject itemPanel;
+    public TMP_Text itemName;
     public TMP_Text itemdescription;
     public TMP_Text contentText;
     private int currentContentIndex = 0;
@@ -54,15 +55,15 @@ public class Day1Action : DayAction
         if (allTextDisplayed)
         {
             itemPanel.SetActive(true);
-            itemdescription.text = "초롱꽃\n\n\n환하게 반짝거린다.";
+            itemName.text = "초롱꽃";
+            itemdescription.text = "환하게 반짝거린다.";
             Close.gameObject.SetActive(true);
             Gamemanager.instance.OnItemButtonClick(1);
         }
     }
     private void ClosePanel()
     {
-        itemPanel.SetActive(true);
-        itemdescription.text = "초롱꽃\n\n\n환하게 반짝거린다.";
+        itemPanel.SetActive(false);
         day1end = true;
     }
 
