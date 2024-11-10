@@ -23,6 +23,8 @@ public class InventoryManager : MonoBehaviour
     public Button item3;
     public Image itemImage;
     private Day8Action day8Action;
+    private Day10Action day10Action;
+
     private void Awake()
     {
         if (instance == null)
@@ -127,6 +129,10 @@ public class InventoryManager : MonoBehaviour
             itemPanel.SetActive(true);
             itemName.text = "";
             itemDescription.text = "no item";
+            itemImage.sprite = null;
+            Color color = itemImage.color;
+            color.a = 0f;
+            itemImage.color = color;
             return;
         }
         itemPanel.SetActive(true);
@@ -147,13 +153,32 @@ public class InventoryManager : MonoBehaviour
             if (day8Action != null)
             {
                 use.onClick.AddListener(() => StartCoroutine(day8Action.FadeInScreen()));
+                inventoryItems.Remove(item);
+                UpdateInventoryUI();
             }
         }
         else if (item.itemName == "수수떡" && Gamemanager.instance.day == 10)
         {
             use.gameObject.SetActive(true);
-            //use.onClick.AddListener();
+
+            GameObject dayActionObject = GameObject.Find("Day10Action");
+            Day10Action day10Action = dayActionObject.GetComponent<Day10Action>();
+
+            if (day10Action != null && DKB.gameObject.activeSelf)
+            {
+                use.onClick.AddListener(() => StartCoroutine(day10Action.DKBEat()));
+                inventoryItems.Remove(item);
+                UpdateInventoryUI();
+
+            }
+            else if (day10Action != null)
+            {
+                use.onClick.AddListener(() => StartCoroutine(day10Action.MeEat()));
+                inventoryItems.Remove(item);
+                UpdateInventoryUI();
+            }
         }
+
     }
     public IEnumerator DKBcall()
     {

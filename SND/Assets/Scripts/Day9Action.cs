@@ -58,7 +58,7 @@ public class Day9Action : DayAction
     private void ClosePanel()
     {
         itemPanel.SetActive(true);
-        itemdescription.text = "Flower";
+        itemdescription.text = "수수떡";
         day9end = true;
     }
 

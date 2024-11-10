@@ -51,7 +51,7 @@ public class ReadPaper : MonoBehaviour
 
     public void OpenAgain()
     {
-        InitializeScripts(); // Ensure scripts are initialized
+        InitializeScripts();
 
         if (!isPaperOpen)
         {
@@ -59,19 +59,34 @@ public class ReadPaper : MonoBehaviour
             {
                 rules.text = "\n\n- 왼쪽 문의 쪽지는 방에 통로가 있으면 참이고,\n호랑이가 있으면 거짓이다.\n\n-오른쪽 방문의 쪽지는 방에 통로가 있으면 거짓이고,\n호랑이가 있으면 참이다.";
 
-                Debug.Log("4일차 룰지 클릭");
-
                 paper_unrolled.SetActive(true);
                 isPaperOpen = true;
 
                 if (passScript != null)
                 {
                     passScript.isDoorClickable = true;
+                    failScript.isDoorClickable = true;
                 }
                 else
                 {
                     Debug.LogError("Pass 스크립트가 초기화되지 않았습니다.");
                 }
+            }
+            else if (Gamemanager.instance != null && Gamemanager.instance.day == 10)
+            {
+                rules.text = "\n\n- 왼쪽 문의 쪽지는 방에 통로가 있으면 참이고,\n호랑이가 있으면 거짓이다.\n\n-오른쪽 방문의 쪽지는 방에 통로가 있으면 거짓이고,\n호랑이가 있으면 참이다.";
+                paper_unrolled.SetActive(true);
+                isPaperOpen = true;
+                if (passScript != null)
+                {
+                    passScript.isDoorClickable = true;
+                    failScript.isDoorClickable = true;
+                }
+                else
+                {
+                    Debug.LogError("Pass 스크립트가 초기화되지 않았습니다.");
+                }
+
             }
             else
             {
